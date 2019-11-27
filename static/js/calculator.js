@@ -12,6 +12,13 @@ $(document).ready(function() {
 
         let quantity = parseInt( $("#quantity").val() );
         let profit = parseInt( $("#profit").val() );
+
+        // convert everything to copper ;_; 
+        // then add all currency together
+        // then multiply copper value to quantity amount
+        // set that as total
+        // convert that total into gold, silver, copper
+
     }); // end of click() - calculate button
 
     // Event handler for click event of Clear button
