@@ -22,18 +22,12 @@ $(document).ready(function() {
         if ( $("#copper").val() == "") {
             copper = 0;
         }
-       
-        // convert everything to copper ;_; 
-        const g2c = gold * 10000
-        const s2c = silver * 100
-        // then add all currency together
-        const copperTotal = g2c + s2c + copper;
-        // then multiply copper value to quantity amount
-        profit = copperTotal * quantity;
-        console.log(profit)
-        // set that as total
-    
-        // convert that total into gold, silver, copper
+
+        
+        // MULTIPLY EACH G, S, C BY QUANTITY
+        gold = gold * quantity
+        silver = silver * quantity
+        copper = copper * quantity
 
     }); // end of click() - calculate button
 
