@@ -6,27 +6,39 @@
 </head>
 <body>
     <main>
+    <h1> Profit Calculator </h1>
+
     <form id="profit_calculator" name="profit_calculator" action="#" method="get">
-        <label for="item"></label>
+        <!-- Item -->
+        <label for="item">&nbsp;</label>
             <input type="text" id="item" name="item" placeholder="Item"><br>
             <br>
 
-        <label for="gold"></label>
+        <!-- Currency -->
+        <label for="gold">&nbsp;</label>
             <input type="text" id="gold" name="currency">g
-        <label for="silver"></label>
+        <label for="silver">&nbsp;</label>
             <input type="text" id="silver" name="currency">s
-        <label for="copper"></label>
-            <input type="text" id="copper" name="currency">c ×
+        <label for="copper">&nbsp;</label>
+            <input type="text" id="copper" name="currency">c &nbsp; ×
 
-        <label for="quantity"></label>
-            <input type="text" id="quantity" name="quantity" placeholder="quantity"> =
+        <!-- Item Quantity -->
+        <label for="quantity">&nbsp;</label>
+            <input type="text" id="quantity" name="quantity" 
+                   placeholder="Quantity">&nbsp; = &nbsp;
 
-        <label for="total_profit"></label>
-            <input type="text" id="total_profit" name="total_profit" 
-                   placeholder="total" disabled><br>
+        <!-- Total Profit -->
+        <label for="profit"></label>
+            <input type="text" id="profit" name="profit" 
+                   placeholder="Total" disabled><br>
             <br>
+
+        <!-- Buttons -->
+        <label>&nbsp;</label>
+            <input type="button" id="calculate" name="calculate" value="Calculate">
+            <input type="button" id="clear" name="clear" value="Clear">
     </form>
     </main>
-    <script src="/static/js/calculator.js"></script>
+    <script src="../static/js/calculator.js"></script>
 </body>
 </html>
