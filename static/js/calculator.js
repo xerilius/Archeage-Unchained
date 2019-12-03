@@ -6,12 +6,13 @@ $(document).ready(function() {
 
     // Event handler for click event of Calculate button
     $("#calculate").click(function() {
-        let gold = parseInt( $("#gold").val() );
-        let silver = parseInt( $("#silver").val() );
-        let copper = parseInt( $("#copper").val() );
+        let gold = parseInt( $("#gold").val().trim() );
+        let silver = parseInt( $("#silver").val().trim() );
+        let copper = parseInt( $("#copper").val().trim() );
        
-        let quantity = parseInt( $("#quantity").val() );
+        let quantity = parseInt( $("#quantity").val().trim() );
         let profit;
+      
         
         if ( $("#gold").val() == "") {
             gold = 0;
@@ -23,11 +24,29 @@ $(document).ready(function() {
             copper = 0;
         }
 
-        
+        console.log("check # 1: ", gold, silver, copper)
         // MULTIPLY EACH G, S, C BY QUANTITY
         gold = gold * quantity
-        silver = silver * quantity
+        silver = (silver * quantity)
         copper = copper * quantity
+
+        let silverToGold = (silver / 100);
+        console.log(silverToGold);
+        let copperToSilver = copper / 100;
+        // convert to string to split - will create list and take 0th index for before period, 1st index for after period
+        let addToGold = silverToGold.toString();
+        let addToSilver = copperToSilver.toString().split(".")[0];
+        addToGold = parseInt(addToGold);
+        addToSilver = parseInt(addToSilver);
+        console.log("addToSilver: ", addToSilver);
+
+        const newGoldAmount = gold + addToGold;
+        const newSilverAmount = silver + addToSilver;
+        const newCopperAmount = copper;
+
+        console.log(newGoldAmount, newSilverAmount, newCopperAmount);
+
+
 
     }); // end of click() - calculate button
 
