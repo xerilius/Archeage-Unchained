@@ -3,17 +3,16 @@
 $(document).ready(function() {
     // move focus to item textbox
     $("#item").focus();
-
+    
     // Event handler for click event of Calculate button
     $("#calculate").click(function() {
+        let item = $("#item").val().trim();
         let gold = parseInt( $("#gold").val().trim() );
         let silver = parseInt( $("#silver").val().trim() );
         let copper = parseInt( $("#copper").val().trim() );
-       
-        let quantity = parseInt( $("#quantity").val().trim() );
+        let quantity = $("#quantity").val().trim();
         let profit;
-      
-        
+
         if ( $("#gold").val() == "") {
             gold = 0;
         }
@@ -24,7 +23,15 @@ $(document).ready(function() {
             copper = 0;
         }
 
-        console.log("check # 1: ", gold, silver, copper)
+        if (quantity == "" ) {
+           $("#quantity").next().text("Enter number of items.");
+        }
+
+        if ( item == "" ) {
+            $("#item").next().text("Please enter the name of the item.")
+        }
+
+        // console.log("check # 1: ", gold, silver, copper)
         // MULTIPLY EACH G, S, C BY QUANTITY
         gold = gold * quantity
         silver = (silver * quantity)
