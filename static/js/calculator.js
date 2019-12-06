@@ -1,40 +1,32 @@
 "use strict";
-// Gold 
 const calculateGold = function (gold, quantity) {
     const newGold = gold * quantity;
     return newGold;
 };
 
-// Silver
 const calculateSilver = function (silver, quantity) {
     const newSilver = parseFloat(silver * quantity);
     if ( newSilver >=100 ) {
         const sToG = newSilver / 100;
         return sToG;
-    } 
-    else {
-        return newSilver;
-    }
+    } else { return newSilver; }
 };
 
-// Copper
 const calculateCopper = function (copper, quantity) {
     const newCopper = parseFloat(copper * quantity);
     if ( newCopper >= 100 ) {
         const cToS = newCopper / 100;
         return cToS;
-    } 
-    else {
-        return newCopper;
-    }
+    } else { return newCopper; }
 };
 
-// Runs when DOM is ready
 $(document).ready(function() {
     // move focus to item textbox
     $("#item").focus();
-    const item = [];
-    const total = [];
+    const items = [];
+    const golds = [];
+    const silvers = [];
+    const coppers = [];
 
     $("#calculate").click( function() {
         let item = $("#item").val().trim();
@@ -56,8 +48,6 @@ $(document).ready(function() {
             $("#item").next().text("Please enter the name of the item.");
         }
         
-
-        
         // combining currencies
         gold = calculateGold(gold,quantity);
 
@@ -67,8 +57,8 @@ $(document).ready(function() {
             let addToG = parseInt(silver.toString().split(".")[0]);
             silver = newSil;
             gold = gold + addToG;
-        } else { silver = silver }
-    
+        }
+
         copper = calculateCopper(copper, quantity);
         if ( copper % 1 !== 0 ) {
             let newCo = parseInt(copper.toString().split(".")[1]);
@@ -76,17 +66,11 @@ $(document).ready(function() {
             copper = newCo;
             silver = silver + addToS;
             console.log(newCo, addToS)
-        } else {copper = copper}
-
-        console.log("copper", copper)
-        console.log("silver", silver)
-        console.log("gold", gold)
-
-
-        silver = calculateSilver(silver, quantity);
-        gold = calculateGold(gold, quantity);
-
-
+        }
+        // display total profit
+        $("#profitg").val(gold);
+        $("#profits").val(silver);
+        $("#profitc").val(copper);
     }); // end of click() - calculate button
 
 
