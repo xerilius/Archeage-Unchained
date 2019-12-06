@@ -2,15 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Profit Calculator</title>
+    <title>ArcheAge : Unchained</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </head>
 <body>
     <h1> Profit Calculator </h1>
-
-    <form id="profit_calculator" name="profit_calculator" action="#" method="get">
+    <div>
         <!-- Item -->
         <label for="item">&nbsp;</label>
         <input type="text" id="item" name="item" placeholder="Item">
@@ -40,7 +39,19 @@
           <input type="button" id="calculate" name="calculate" value="Calculate">
           <input type="button" id="clear" name="clear" value="Clear">
           <span></span><br><br>
-    </form>
+          <label>&nbsp;</label>
+          <input type="button" id="profit_list" name="profit_list" value="Add to Tracker">
+    </div>
+    <h2>Profit Tracker</h2>
+    <p>&nbsp;<textarea id="scores" rows="5" cols="20"></textarea></p>
+    <div>
+        <label>&nbsp;Daily Profit:</label> 
+        <input type="text" name="daily_profit"><br>
+        <span></span><br>
+
+        <label>&nbsp;</label>
+        <input type="button" id="clear_button" value="Clear Tracker"><br>
+    </div>
     <script src="../static/js/calculator.js"></script>
 </body>
 </html>
