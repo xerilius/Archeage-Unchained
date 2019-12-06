@@ -29,8 +29,6 @@ const calculateCopper = function (copper, quantity) {
     }
 };
 
-
-const calculateProfit
 // Runs when DOM is ready
 $(document).ready(function() {
     // move focus to item textbox
@@ -55,20 +53,34 @@ $(document).ready(function() {
            $("#quantity").next().text("Enter number of items.");
         }
         if ( item === "" ) {
-            $("#item").next().text("Please enter the name of the item.")
+            $("#item").next().text("Please enter the name of the item.");
         }
         
-        // currency conversion
+
+        
+        // combining currencies
+        gold = calculateGold(gold,quantity);
+
+        silver = calculateSilver(silver, quantity);
+        if ( silver % 1 !== 0 ) {
+            let newSil = parseInt(silver.toString().split(".")[1]);
+            let addToG = parseInt(silver.toString().split(".")[0]);
+            silver = newSil;
+            gold = gold + addToG;
+        } else { silver = silver }
+    
         copper = calculateCopper(copper, quantity);
         if ( copper % 1 !== 0 ) {
-            let newCo = parseInt(copper.toString().split(".")[1])
-            let addToS = parseInt(copper.toString().split(".")[0])
-            copper = newCo
-            silver = silver + addToS
+            let newCo = parseInt(copper.toString().split(".")[1]);
+            let addToS = parseInt(copper.toString().split(".")[0]);
+            copper = newCo;
+            silver = silver + addToS;
             console.log(newCo, addToS)
         } else {copper = copper}
+
         console.log("copper", copper)
         console.log("silver", silver)
+        console.log("gold", gold)
 
 
         silver = calculateSilver(silver, quantity);
