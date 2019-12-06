@@ -29,6 +29,8 @@ const calculateCopper = function (copper, quantity) {
     }
 };
 
+
+const calculateProfit
 // Runs when DOM is ready
 $(document).ready(function() {
     // move focus to item textbox
