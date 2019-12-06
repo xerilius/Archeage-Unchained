@@ -1,61 +1,84 @@
 "use strict";
+// Gold 
+const calculateGold = function (gold, quantity) {
+    const newGold = gold * quantity;
+    return newGold;
+};
+
+// Silver
+const calculateSilver = function (silver, quantity) {
+    const newSilver = parseFloat(silver * quantity);
+    if ( newSilver >=100 ) {
+        const sToG = newSilver / 100;
+        return sToG;
+    } 
+    else {
+        return newSilver;
+    }
+};
+
+// Copper
+const calculateCopper = function (copper, quantity) {
+    const newCopper = parseFloat(copper * quantity);
+    if ( newCopper >= 100 ) {
+        const cToS = newCopper / 100;
+        return cToS;
+    } 
+    else {
+        return newCopper;
+    }
+};
+
 // Runs when DOM is ready
 $(document).ready(function() {
     // move focus to item textbox
     $("#item").focus();
-    
-    // Event handler for click event of Calculate button
-    $("#calculate").click(function() {
+    const item = [];
+    const total = [];
+
+    $("#calculate").click( function() {
         let item = $("#item").val().trim();
         let gold = parseInt( $("#gold").val().trim() );
-        let silver = parseInt( $("#silver").val().trim() );
-        let copper = parseInt( $("#copper").val().trim() );
+        let silver = parseFloat( $("#silver").val().trim() );
+        let copper = parseFloat( $("#copper").val().trim() );
         let quantity = $("#quantity").val().trim();
         let profit;
 
-        if ( $("#gold").val() == "") {
-            gold = 0;
-        }
-        if ( $("#silver").val() == "") {
-            silver = 0;
-        }
-        if ( $("#copper").val() == "") {
-            copper = 0;
-        }
-
-        if (quantity == "" ) {
+        if ( $("#gold").val() === "") { gold = 0; }
+        if ( $("#silver").val() === "") { silver = 0; }
+        if ( $("#copper").val() === "") { copper = 0; }
+        
+        // Item & Quantity data validation
+        if (quantity === "" ) {
            $("#quantity").next().text("Enter number of items.");
         }
-
-        if ( item == "" ) {
+        if ( item === "" ) {
             $("#item").next().text("Please enter the name of the item.")
         }
+        
+        // currency conversion
+        copper = calculateCopper(copper, quantity);
+        if ( copper % 1 !== 0 ) {
+            let newCo = parseInt(copper.toString().split(".")[1])
+            let addToS = parseInt(copper.toString().split(".")[0])
+            copper = newCo
+            silver = silver + addToS
+            console.log(newCo, addToS)
+        } else {copper = copper}
+        console.log("copper", copper)
+        console.log("silver", silver)
 
-        // console.log("check # 1: ", gold, silver, copper)
-        // MULTIPLY EACH G, S, C BY QUANTITY
-        gold = gold * quantity
-        silver = (silver * quantity)
-        copper = copper * quantity
 
-        let silverToGold = (silver / 100);
-        console.log(silverToGold);
-        let copperToSilver = copper / 100;
-        // convert to string to split - will create list and take 0th index for before period, 1st index for after period
-        let addToGold = silverToGold.toString();
-        let addToSilver = copperToSilver.toString().split(".")[0];
-        addToGold = parseInt(addToGold);
-        addToSilver = parseInt(addToSilver);
-        console.log("addToSilver: ", addToSilver);
-
-        const newGoldAmount = gold + addToGold;
-        const newSilverAmount = silver + addToSilver;
-        const newCopperAmount = copper;
-
-        console.log(newGoldAmount, newSilverAmount, newCopperAmount);
-
+        silver = calculateSilver(silver, quantity);
+        gold = calculateGold(gold, quantity);
 
 
     }); // end of click() - calculate button
+
+
+    // Add to profit tracker
+    $("#profit_list").click( function() {
+    }); // end of click() handler of Tracker button
 
     // Event handler for click event of Clear button
     $("#clear").click(function() {
