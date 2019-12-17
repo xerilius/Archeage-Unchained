@@ -1,6 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Courier+Prime|Inria+Serif|Lato|Open+Sans+Condensed:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Alex+Brush|Allura|Amita|Beth+Ellen|Cinzel+Decorative|Cookie|Faster+One|Kristi|Meddon|Oregano|Over+the+Rainbow|Satisfy|Sedgwick+Ave|Vampiro+One&display=swap');
+/*
+font-family: 'Abel', sans-serif;
+font-family: 'Courier Prime', monospace;
+font-family: 'Lato', sans-serif;
+font-family: 'Inria Serif', serif;
+font-family: 'Open Sans Condensed', sans-serif;
+*/
+/*
+font-family: 'Satisfy', cursive; x
+font-family: 'Cookie', cursive;
+font-family: 'Allura', cursive; x
+font-family: 'Alex Brush', cursive;
+font-family: 'Kristi', cursive;
+font-family: 'Faster One', cursive;
+font-family: 'Oregano', cursive;
+font-family: 'Sedgwick Ave', cursive;
+font-family: 'Amita', cursive;
+font-family: 'Meddon', cursive; X
+font-family: 'Vampiro One', cursive;
+font-family: 'Beth Ellen', cursive;
+font-family: 'Over the Rainbow', cursive; x
+font-family: 'Cinzel Decorative', cursive;
+*/
 body {
     background-image: url("../img/archeage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;   
+    font-family: 'Satisfy', sans-serif;
+    color: white;
+
 }
+
+h1, h2 {
+    font-family:'Cinzel Decorative', sans-serif;
+    color: white;
+    font-weight: bold;
+}
+
+.button {
+    font-family: 'Satisfy';
+    font-weight: bold;
+    background: rgba(0,0,0,0.2);
+    border-color: transparent;
+}
+
+#logo {
+    padding:0px;
+    margin:0px;
+    width: 150px;
+    height: 50px;
+}
+
+textarea,
+input[type="text"] {
+    font-family: 'Abel';
+    background: rgba(0,0,0,0.2);
+    border-color: transparent;
+    outline-color: rgba(0,0,0,0.3);
+}
+input[name] {
+    color: white;
+}
+
+input[type="text"]::placeholder { color: white; }
+input[type="button"]:hover { background-color: rgba(0,0,0,0.65);}
+input[type="button"]:focus { outline-color: rgba(0,0,0,0.65); }
+
+input[name="profit"] { background: rgba(0,0,0,0.15);}
