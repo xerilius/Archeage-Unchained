@@ -23,6 +23,20 @@ font-family: 'Beth Ellen', cursive;
 font-family: 'Over the Rainbow', cursive; x
 font-family: 'Cinzel Decorative', cursive;
 */
+
+/* red
+    #b04945;
+    #8b3b3a;
+    
+    blue
+    #2e3c5f
+    
+    orange
+    #f5a989
+    
+    green
+    #8fc06c 
+*/
 html {
     background-image: url("../img/archeage.jpg");
     height: 100vh; 
@@ -69,7 +83,7 @@ input[name] {
     color: white;
 }
 
-input[type="text"]::placeholder { color: white; }
+input[type="text"]::placeholder { color: rgba(255, 255,255, 0.68); }
 input[type="button"]:hover { background-color: rgba(0,0,0,0.65);}
 input[type="button"]:focus { outline-color: rgba(0,0,0,0.65); }
 input[name="profit"] { background: rgba(0,0,0,0.15);}
