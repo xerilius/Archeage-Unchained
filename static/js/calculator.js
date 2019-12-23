@@ -1,4 +1,5 @@
 "use strict";
+
 const calculateGold = function (gold, quantity) {
     const newGold = gold * quantity;
     return newGold;
@@ -6,28 +7,53 @@ const calculateGold = function (gold, quantity) {
 
 const calculateSilver = function (silver, quantity) {
     const newSilver = parseFloat(silver * quantity);
-    if ( newSilver >=100 ) {
+    if ( newSilver > 100 ) {
         const sToG = newSilver / 100;
         return sToG;
-    } else { return newSilver; }
+    }
+    else { return newSilver; }
 };
 
 const calculateCopper = function (copper, quantity) {
     const newCopper = parseFloat(copper * quantity);
-    if ( newCopper >= 100 ) {
+    if ( newCopper > 100 ) {
         const cToS = newCopper / 100;
         return cToS;
-    } else { return newCopper; }
+    } 
+    else { return newCopper; }
 };
 
+
 $(document).ready(function() {
-    // move focus to item textbox
     $("#item").focus();
     const items = [];
     const golds = [];
     const silvers = [];
     const coppers = [];
 
+    // DISPLAY PROFIT TRACKER ITEMS 
+    const displayProfits = function () {
+        totalGold = 0;
+        totalSilver = 0;
+        totalCopper = 0;
+
+        // Calculate totals of all items combined
+        for (const i in golds) {
+            totalGold += parseInt(golds[i]);
+        }
+        for (const i in silver) {
+            totalSilver += parseInt(silver[i]);
+        }
+        for (const i in copper) {
+            totalCopper += parseInt(copper[i]);
+        }
+        // display item and profit
+        let itemAndProfit = "";
+        $("#tracker_total").val(totalProfits)
+
+    }; // end of displayProfits function
+    
+    // CALCULATE BUTTON
     $("#calculate").click( function() {
         let item = $("#item").val().trim();
         let gold = parseInt( $("#gold").val().trim() );
@@ -48,7 +74,7 @@ $(document).ready(function() {
             $("#item").next().text("Please enter the name of the item.");
         }
         
-        // combining currencies
+        // Combining currencies
         gold = calculateGold(gold,quantity);
 
         silver = calculateSilver(silver, quantity);
@@ -60,32 +86,62 @@ $(document).ready(function() {
         }
 
         copper = calculateCopper(copper, quantity);
-        if ( copper % 1 !== 0 ) {
+        if ( copper % 1 !== 0 ) { //has decimal (100 doesnt count)
+            console.log("copper%1!==0")
             let newCo = parseInt(copper.toString().split(".")[1]);
             let addToS = parseInt(copper.toString().split(".")[0]);
             copper = newCo;
             silver = silver + addToS;
-            console.log(newCo, addToS)
         }
+        else if (copper >= 100 && copper % 100 == 0) {
+            let addToS = copper/100;
+            silver = silver + addToS;
+            copper = 0;
+        }
+
+        // final check
+        if (silver >= 100) {
+            silver = parseFloat(silver/100)
+            let addToGold = parseInt(silver.toString().split(".")[0]);
+            let newSil = parseInt(silver.toString().split(".")[1]);
+            silver = newSil;
+            gold = gold + addToGold;
+        }
+ 
         // display total profit
         $("#profitg").val(gold);
         $("#profits").val(silver);
         $("#profitc").val(copper);
+
     }); // end of click() - calculate button
 
 
-    // Add to profit tracker
+    // PROFIT TRACKER
     $("#profit_list").click( function() {
+        items.push( $("#item").val() );
+        golds.push( $("#profitg").val() );
+        silvers.push( $("#profits").val() );
+        coppers.push( $("#profitc").val() );
+
+        console.log(items)
+        console.log(golds)
+        console.log(silvers)
+        console.log(coppers)
     }); // end of click() handler of Tracker button
+
 
     // Event handler for click event of Clear button
     $("#clear").click(function() {
         $("#item").val("");
+        $("#item").next().text("");
         $("#gold").val("");  
         $("#silver").val("");
         $("#copper").val("");
         $("#quantity").val("");
-        $("#profit").val("");
+        $("#quantity").next().text("");
+        $("#profitg").val("");
+        $("#profits").val("");
+        $("#profitc").val("");
     }); // end of click() - clear button
 
 }); // end ready()
