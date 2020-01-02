@@ -23,6 +23,7 @@ const calculateCopper = function (copper, quantity) {
     else { return newCopper; }
 };
 
+
 $(document).ready(function() {
     $("#item").focus();
     const items = [];
@@ -104,8 +105,7 @@ $(document).ready(function() {
             silver = newSil;
             gold = gold + addToGold;
         }
-    
-        // display total profit
+        // Display total profit
         $("#profitg").val(gold);
         $("#profits").val(silver);
         $("#profitc").val(copper);
@@ -140,6 +140,5 @@ $(document).ready(function() {
         $("#profits").val("");
         $("#profitc").val("");
     }); 
-
-    
+ 
 }); // end ready()
