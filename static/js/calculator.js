@@ -75,18 +75,25 @@ $(document).ready(function() {
         }
         
         // Combining currencies
+
         gold = calculateGold(gold,quantity);
         silver = calculateSilver(silver, quantity);
+        console.log(gold)
+        console.log(silver)
         if ( silver % 1 !== 0 ) {
-            let newSil = parseFloat(silver.toString().split(".")[1]) * 10;
+            let newSil = parseFloat(silver.toFixed(2).split(".")[1]);
             let addToG = parseFloat(silver.toString().split(".")[0]);
             silver = newSil;
             gold = gold + addToG;
+            console.log(copper)
+            console.log(silver)
+            console.log(gold)
         }
         copper = calculateCopper(copper, quantity);
+        console.log(copper)
         if ( copper % 1 !== 0 ) { // has decimal (100 doesnt count)
             console.log("copper%1!==0")
-            let newCo = parseFloat(copper.toString().split(".")[1]);
+            let newCo = parseFloat(copper.toFixed(2).split(".")[1]);
             let addToS = parseFloat(copper.toString().split(".")[0]);
             console.log(newCo)
             console.log(addToS)
@@ -102,9 +109,11 @@ $(document).ready(function() {
         if (silver >= 100) {
             silver = parseFloat(silver/100)
             let addToGold = parseFloat(silver.toString().split(".")[0]);
+            console.log(addToGold)
             let newSil = parseFloat(silver.toString().split(".")[1]);
             silver = newSil;
             gold = gold + addToGold;
+            console.log(gold);
         }
        
         // display total profit
