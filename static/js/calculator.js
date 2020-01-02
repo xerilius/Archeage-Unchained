@@ -29,9 +29,70 @@ $(document).ready(function() {
     const golds = [];
     const silvers = [];
     const coppers = [];
+    const add = [];
 
-    // CALCULATE BUTTON
-    $("#calculate").click( function() {
+    // DISPLAY PROFIT TRACKER ITEMS 
+    const displayProfits = function () {
+        totalGold = 0;
+        totalSilver = 0;
+        totalCopper = 0;
+
+        // Calculate totals of all items combined
+        for (const i in golds) {
+            totalGold += parseInt(golds[i]);
+        }
+        for (const i in silver) {
+            totalSilver += parseInt(silver[i]);
+        }
+        for (const i in copper) {
+            totalCopper += parseInt(copper[i]);
+        }
+        
+        // display item and profit
+        let itemAndProfit = "";
+        $("#tracker_total").val(totalProfits)
+
+    }; // end of displayProfits function
+
+    const combiningCurrencies = function () {
+        // Combining currencies
+        gold = calculateGold(gold,quantity);
+        silver = calculateSilver(silver, quantity);
+        if ( silver % 1 !== 0 ) {
+            let newSil = parseFloat(silver.toFixed(2).split(".")[1]);
+            let addToG = parseFloat(silver.toString().split(".")[0]);
+            silver = newSil;
+            gold = gold + addToG;
+            console.log(copper)
+            console.log(silver)
+            console.log(gold)
+        }
+        copper = calculateCopper(copper, quantity);
+        if ( copper % 1 !== 0 ) { // has decimal (100 doesnt count)
+            console.log("copper%1!==0")
+            let newCo = parseFloat(copper.toFixed(2).split(".")[1]);
+            let addToS = parseFloat(copper.toString().split(".")[0]);
+            console.log(newCo)
+            console.log(addToS)
+            copper = newCo;
+            silver = silver + addToS;
+        }
+        else if (copper >= 100 && copper % 100 == 0) {
+            let addToS = copper/100;
+            silver = silver + addToS;
+            copper = 0;
+        }
+        // final check
+        if (silver >= 100) {
+            silver = parseFloat(silver/100)
+            let addToGold = parseFloat(silver.toString().split(".")[0]);
+            let newSil = parseFloat(silver.toString().split(".")[1]);
+            silver = newSil;
+            gold = gold + addToGold;
+        }
+    };
+
+    const calculateItem = function () {
         let item = $("#item").val().trim();
         let gold = parseInt( $("#gold").val().trim() );
         let silver = parseFloat( $("#silver").val().trim() );
@@ -86,13 +147,31 @@ $(document).ready(function() {
             silver = newSil;
             gold = gold + addToGold;
         }
-       
+    
         // display total profit
         $("#profitg").val(gold);
         $("#profits").val(silver);
         $("#profitc").val(copper);
+    };
 
+    // CALCULATE BUTTON
+    $("#calculate").click( function() {
+        calculateItem();
     }); // end of click() - calculate button
+
+     // ADD ITEM TO PROFIT TRACKER
+    $("#track_item").click( function() {
+        calculateItem();
+        items.push( $("#item").val() );
+        golds.push( $("#profitg").val() );
+        silvers.push( $("#profits").val() );
+        coppers.push( $("#profitc").val() );
+        console.log(items)
+        console.log("Golds List: " + golds + " " )
+        console.log("Silver list: " + silvers  + " " )
+        console.log("Copper list: " + coppers + " " )
+    }); // end of click() handler of Tracker button
+
 
     // Event handler for click event of Clear button
     $("#clear").click(function() {
@@ -108,4 +187,5 @@ $(document).ready(function() {
         $("#profitc").val("");
     }); // end of click() - clear button
 
+    
 }); // end ready()
