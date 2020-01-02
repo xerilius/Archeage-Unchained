@@ -83,17 +83,11 @@ $(document).ready(function() {
             let addToG = parseFloat(silver.toString().split(".")[0]);
             silver = newSil;
             gold = gold + addToG;
-            console.log(copper)
-            console.log(silver)
-            console.log(gold)
         }
         copper = calculateCopper(copper, quantity);
         if ( copper % 1 !== 0 ) { // has decimal (100 doesnt count)
-            console.log("copper%1!==0")
             let newCo = parseFloat(copper.toFixed(2).split(".")[1]);
             let addToS = parseFloat(copper.toString().split(".")[0]);
-            console.log(newCo)
-            console.log(addToS)
             copper = newCo;
             silver = silver + addToS;
         }
@@ -130,10 +124,6 @@ $(document).ready(function() {
         golds.push( $("#profitg").val() );
         silvers.push( $("#profits").val() );
         coppers.push( $("#profitc").val() );
-        console.log(items)
-        console.log("Golds List: " + golds + " " )
-        console.log("Silver list: " + silvers  + " " )
-        console.log("Copper list: " + coppers + " " )
     });
 
 
