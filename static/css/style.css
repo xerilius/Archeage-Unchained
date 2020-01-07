@@ -93,3 +93,26 @@ input[name="profit"] { background: rgba(0,0,0,0.15);}
 hr {
     border-color: rgba(0,0,0,0.2);
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.15); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black; 
+}
+
+::-webkit-resizer {
+   display: none;
+}

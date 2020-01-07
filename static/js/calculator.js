@@ -83,14 +83,6 @@ $(document).ready(function() {
         if ( $("#silver").val() === "") { silver = 0; }
         if ( $("#copper").val() === "") { copper = 0; }
         
-        // Item & Quantity data validation
-        if (quantity === "" ) {
-           $("#quantity").next().text("Enter number of items.");
-        }
-        if ( item === "" ) {
-            $("#item").next().text("Please enter the name of the item.");
-        }
-        
         // Combining currencies
         gold = calculateGold(gold,quantity);
         silver = calculateSilver(silver, quantity);
@@ -128,7 +120,17 @@ $(document).ready(function() {
 
     // CALCULATE BUTTON
     $("#calculate").click( function() {
-        calculateItem();
+        // Item & Quantity data validation
+        if ( $("#quantity").val() === "" ) {    
+           $("#quantity").next().text("Enter number of items.");
+        }
+        if ( $("#item").val() === "" ) {
+            $("#item").next().text("Please enter the name of the item.");
+        }
+        else {
+            calculateItem();
+        }
+
     }); 
 
     // Handler for click event of Clear button
@@ -144,5 +146,9 @@ $(document).ready(function() {
         $("#profits").val("");
         $("#profitc").val("");
     }); 
+
+    $("#clear_tracker").click(function() { 
+        
+    });
  
 }); // end ready()
