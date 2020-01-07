@@ -33,7 +33,7 @@ $(document).ready(function() {
     const add = [];
 
     // DISPLAY PROFIT TRACKER ITEMS 
-    const displayProfits = function () {
+    const displayProfits = function() {
         totalGold = 0;
         totalSilver = 0;
         totalCopper = 0;
@@ -48,18 +48,30 @@ $(document).ready(function() {
         for (const i in copper) {
             totalCopper += parseInt(copper[i]);
         }
-        
-        // display item and profit in tracker area
-        let itemAndProfit = "";
-        $("#item_tracker").val(totalProfits)
 
     }; // end of displayProfits function
 
-    const displayItems = function () {
+    const displayItems = function() {
+        $("#item_tracker").val(items.join("\n"));
+        $("#items").focus();
     };
 
+    // ADD ITEM TO TRACKER BUTTON
+    $("#track_item").click( function() {
+        if ($("#item").val() === "" ){
+            alert("Please enter the item");
+            $("#item").focus();
+        } else {
+            calculateItem();
+            items.push($("#item").val() );
+            golds.push( $("#profitg").val() );
+            silvers.push( $("#profits").val() );
+            coppers.push( $("#profitc").val() );
+            displayItems();
+        }
+    });
 
-    const calculateItem = function () {
+    const calculateItem = function() {
         let item = $("#item").val().trim();
         let gold = parseInt( $("#gold").val().trim() );
         let silver = parseFloat( $("#silver").val().trim() );
@@ -118,16 +130,6 @@ $(document).ready(function() {
     $("#calculate").click( function() {
         calculateItem();
     }); 
-
-     // ADD ITEM TO TRACKER BUTTON
-    $("#track_item").click( function() {
-        calculateItem();
-        items.push( $("#item").val() );
-        golds.push( $("#profitg").val() );
-        silvers.push( $("#profits").val() );
-        coppers.push( $("#profitc").val() );
-    });
-
 
     // Handler for click event of Clear button
     $("#clear").click(function() {
