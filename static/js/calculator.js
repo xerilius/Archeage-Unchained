@@ -49,11 +49,14 @@ $(document).ready(function() {
             totalCopper += parseInt(copper[i]);
         }
         
-        // display item and profit
+        // display item and profit in tracker area
         let itemAndProfit = "";
-        $("#tracker_total").val(totalProfits)
+        $("#item_tracker").val(totalProfits)
 
     }; // end of displayProfits function
+
+    const displayItems = function () {
+    };
 
 
     const calculateItem = function () {
@@ -115,7 +118,6 @@ $(document).ready(function() {
     $("#calculate").click( function() {
         calculateItem();
     }); 
-
 
      // ADD ITEM TO TRACKER BUTTON
     $("#track_item").click( function() {

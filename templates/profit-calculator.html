@@ -8,30 +8,32 @@
 
 </head>
 <body>
-<!--     <img id="logo" src="../static/img/aau-logo.PNG" > -->
-    <h1>Calculator </h1>
-    <div>
+<!--     <img id="logo" src="../static/img/aau-logo.PNG"> -->
+    <h1>Archeage:Unchained</h1>
+    <h3>Price Calculator</h3>
+    <div id="calculator">
         <!-- Item -->
-        <label for="item">&nbsp;</label>
-        <input type="text" id="item" name="item" placeholder="Item">
+        <label for="item">Item ▸</label>
+        <input type="text" id="item" name="item" >
         <span></span><br><br>
         
         <!-- Currency -->
+        <label for="price">Price ▸</label>
         <label for="gold">&nbsp;</label>
-        <input type="text" class="currency" id="gold" name="currency" placeholder="Gold"> g
+        <input type="text" class="currency" id="gold" name="currency" > g
         <label for="silver">&nbsp;</label>
-        <input type="text" class="currency" id="silver" name="currency" placeholder="Silver"> s
+        <input type="text" class="currency" id="silver" name="currency" > s
         <label for="copper">&nbsp;</label>
-        <input type="text" class="currency" id="copper" name="currency" placeholder="Copper"> c
+        <input type="text" class="currency" id="copper" name="currency" > c
         <span></span><br><br>
         
         <!-- Item Quantity -->
-        <label for="quantity">&nbsp;</label>
-        <input type="text" id="quantity" name="quantity" placeholder="Quantity">
+        <label for="quantity">Quantity ▸</label>
+        <input type="text" id="quantity" name="quantity" >
         <span></span><br><br>
         
         <!-- Total Profit -->
-        <label for="profit">&nbsp; Total =  </label>
+        <label for="profit">Total ▸</label>
           <input type="text"  id="profitg" name="profit" disabled> g
           <input type="text"  id="profits" name="profit" disabled> s
           <input type="text" id="profitc" name="profit" disabled> c
@@ -43,19 +45,22 @@
           <input type="button" class="button" id="calculate" name="calculate" value="Calculate"> <br><br>
         
         <label>&nbsp;</label>
-          <input type="button" class="button" id="track_item" name="track_item" value="Add to Tracker">
-
+          <input type="button" class="button" id="track_item" name="track_item" value="Add to Tracker"><br><br>
     </div>
+    
+    <hr>
 
-    <h2>Profit Tracker</h2>
-    <p>&nbsp;<textarea id="tracker_total" rows="5" cols="20"></textarea></p>
+    <div id="tracker">
+    <h3>Profit Tracker</h3>
+    <p>&nbsp;<textarea id="item_tracker" rows="5" cols="50"></textarea></p>
     <div>
-        <label>&nbsp;Daily Profit:</label> 
+        <label>Daily Profit ▸</label> 
         <input type="text" name="daily_profit" disabled><br>
         <span></span><br>
 
         <label>&nbsp;</label>
-        <input type="button" class="button" id="clear_button" value="Clear"><br>
+        <input type="button" class="button" id="clear_tracker" value="Clear"><br>
+    </div>
     </div>
     <script src="../static/js/calculator.js"></script>
 </body>

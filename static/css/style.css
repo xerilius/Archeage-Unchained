@@ -38,7 +38,7 @@ font-family: 'Cinzel Decorative', cursive;
     #8fc06c 
 */
 html {
-    background-image: url("../img/archeage.jpg");
+    background-image: url("../img/worldmap.jpg");
     height: 100vh; 
     background-repeat: no-repeat;
     background-size: cover;
@@ -49,20 +49,20 @@ html {
 
 body {
     font-family: 'Satisfy', sans-serif;
-    color: white;
+    color: black;
 }
 
-h1, h2 {
+h1 {
     font-family:'Cinzel Decorative', sans-serif;
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
 .button {
     font-family: 'Satisfy';
-    font-weight: bold;
     background: rgba(0,0,0,0.2);
     border-color: transparent;
+    color: black;
 }
 
 #logo {
@@ -70,6 +70,7 @@ h1, h2 {
     margin:0px;
     width: 150px;
     height: 50px;
+
 }
 
 textarea,
@@ -80,7 +81,7 @@ input[type="text"] {
     outline-color: rgba(0,0,0,0.3);
 }
 input[name] {
-    color: white;
+    color: black;
 }
 
 input[type="text"]::placeholder { color: rgba(255, 255,255, 0.68); }
@@ -88,3 +89,6 @@ input[type="button"]:hover { background-color: rgba(0,0,0,0.65);}
 input[type="button"]:focus { outline-color: rgba(0,0,0,0.65); }
 input[name="profit"] { background: rgba(0,0,0,0.15);}
 
+hr {
+    border-color: rgba(0,0,0,0.2);
+}
