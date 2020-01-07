@@ -79,6 +79,7 @@ input[type="text"] {
     background: rgba(0,0,0,0.2);
     border-color: transparent;
     outline-color: rgba(0,0,0,0.3);
+    color: black;
 }
 input[name] {
     color: black;
