@@ -148,7 +148,7 @@ $(document).ready(function() {
     }); 
 
     $("#clear_tracker").click(function() { 
-        
+        $("#item_tracker").val("");
     });
  
 }); // end ready()
