@@ -24,19 +24,6 @@ font-family: 'Over the Rainbow', cursive; x
 font-family: 'Cinzel Decorative', cursive;
 */
 
-/* red
-    #b04945;
-    #8b3b3a;
-    
-    blue
-    #2e3c5f
-    
-    orange
-    #f5a989
-    
-    green
-    #8fc06c 
-*/
 html {
     background-image: url("../img/worldmap.jpg");
     height: 100vh; 
@@ -94,25 +81,19 @@ hr {
     border-color: rgba(0,0,0,0.2);
 }
 
+/* Scroll Bar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: rgba(0,0,0,0.15); 
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.2); 
+  background: rgba(0,0,0,0.15); 
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: black; 
-}
-
-::-webkit-resizer {
-   display: none;
+::-webkit-scrollbar-corner { 
+ background: rgba(0,0,0,0);
 }
