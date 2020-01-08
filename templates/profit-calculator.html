@@ -8,11 +8,11 @@
 
 </head>
 <body>
-    <div class="content">
+    <div class="container">
 <!--<img id="logo" src="../static/img/aau-logo.PNG"> -->
     <h1>Archeage:Unchained</h1>
     <div id="calculator">
-        <h3>Price Calculator</h3>
+
         <!-- Item -->
         <label for="item">Item ▸</label>
         <input type="text" id="item" name="item" >
@@ -41,25 +41,22 @@
           <span></span><br><br>
 
         <!-- Buttons -->
+        <div class="buttons">
         <label>&nbsp;</label>
           <input type="button" class="button" id="clear" name="clear" value="Clear">
-          <input type="button" class="button" id="calculate" name="calculate" value="Calculate"> <br><br>
-        
-        <label>&nbsp;</label>
-          <input type="button" class="button" id="track_item" name="track_item" value="Add to Tracker"><br><br>
+          <input type="button" class="button" id="track_item" name="track_item" value="Add to Tracker">
+          <input type="button" class="button" id="calculate" name="calculate" value="Calculate">
+        </div>
+          <br><br>
     </div>
     
-    <hr>
+    <hr><br>
 
     <div id="tracker">
-        <h3>Profit Tracker</h3>
-        <p><textarea id="item_tracker" rows="5" cols="90" disabled></textarea></p>
-        <div>
+      <textarea id="item_tracker"  rows="7" disabled></textarea>
+ 
             <label>Daily Profit ▸</label> 
             <input type="text" name="daily_profit" disabled><br>
-            <span></span><br>
-
-            <label>&nbsp;</label>
             <input type="button" class="button" id="clear_tracker" value="Clear"><br>
         </div>
     </div>
