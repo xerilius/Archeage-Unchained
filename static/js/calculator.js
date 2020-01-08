@@ -59,10 +59,11 @@ $(document).ready(function() {
     // ADD ITEM TO TRACKER BUTTON
     $("#track_item").click( function() {
         if ($("#item").val() === "" ){
-            alert("Please enter the item");
+            $("#item").next().text("Please enter the name of the item.");
             $("#item").focus();
         } else {
             calculateItem();
+            $("#item").next().text("");
             items.push($("#item").val() );
             golds.push( $("#profitg").val() );
             silvers.push( $("#profits").val() );
@@ -124,9 +125,9 @@ $(document).ready(function() {
         if ( $("#quantity").val() === "" ) {    
            $("#quantity").next().text("Enter number of items.");
         }
-        if ( $("#item").val() === "" ) {
-            $("#item").next().text("Please enter the name of the item.");
-        }
+        // if ( $("#item").val() === "" ) {
+        //     $("#item").next().text("Please enter the name of the item.");
+        // }
         else {
             calculateItem();
         }
