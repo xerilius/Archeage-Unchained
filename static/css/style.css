@@ -1,28 +1,62 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Courier+Prime|Inria+Serif|Lato|Open+Sans+Condensed:300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Alex+Brush|Allura|Amita|Beth+Ellen|Cinzel+Decorative|Cookie|Faster+One|Kristi|Meddon|Oregano|Over+the+Rainbow|Satisfy|Sedgwick+Ave|Vampiro+One&display=swap');
-/*
-font-family: 'Abel', sans-serif;
-font-family: 'Courier Prime', monospace;
-font-family: 'Lato', sans-serif;
-font-family: 'Inria Serif', serif;
-font-family: 'Open Sans Condensed', sans-serif;
-*/
-/*
-font-family: 'Satisfy', cursive; x
-font-family: 'Cookie', cursive;
-font-family: 'Allura', cursive; x
+@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Alex+Brush|Arizonia|Beth+Ellen|Caesar+Dressing|Cedarville+Cursive|Charmonman|Condiment|Felipa|Frijole|Griffy|Jim+Nightshade|Macondo+Swash+Caps|Meddon|Megrim|Miniver|Monofett|New+Rocker|Norican|Nosifer|Nothing+You+Could+Do|Pirata+One|Princess+Sofia|Quintessential|Reenie+Beanie|Sarina|Sedgwick+Ave|Sofia|Trade+Winds|Trochut|UnifrakturCook:700|UnifrakturMaguntia|Vampiro+One&display=swap');
+/* 
+font-family: 'Reenie Beanie', cursive;
+font-family: 'Nothing You Could Do', cursive;
 font-family: 'Alex Brush', cursive;
-font-family: 'Kristi', cursive;
-font-family: 'Faster One', cursive;
-font-family: 'Oregano', cursive;
+font-family: 'Cedarville Cursive', cursive;
+
+font-family: 'Norican', cursive;
+font-family: 'Arizonia', cursive;
+font-family: 'Sofia', cursive;
 font-family: 'Sedgwick Ave', cursive;
-font-family: 'Amita', cursive;
-font-family: 'Meddon', cursive; X
-font-family: 'Vampiro One', cursive;
-font-family: 'Beth Ellen', cursive;
-font-family: 'Over the Rainbow', cursive; x
-font-family: 'Cinzel Decorative', cursive;
+font-family: 'UnifrakturMaguntia', cursive;
+
+font-family: 'Megrim', cursive;
+
+font-family: 'Meddon', cursive;
+font-family: 'Quintessential', cursive;
+font-family: 'Charmonman', cursive;
+
+
+font-family: 'Miniver', cursive;
+font-family: 'Felipa', cursive;
+font-family: 'Caesar Dressing', cursive;
+font-family: 'Jim Nightshade', cursive;
 */
+h1 {
+    font-family: 'Meddon', cursive;
+    color: black;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: #afb064 1px 0 10px; 
+    text-align:center;
+    margin: 20px;
+}
+
+body {
+    font-family: 'Charmonman', cursive;
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    text-shadow: #807863 1px 0 10px; 
+    text-align:left;
+}
+
+div#calculator {
+    padding: 10px 45px;
+
+}
+.button {
+    font-family: 'Quintessential', cursive;
+    background: rgba(0,0,0,0.2);
+    border-color: transparent;
+    color: black;
+    font-weight: 600; 
+    margin:0px 20px;
+}   
 
 html {
     background-image: url("../img/worldmap.jpg");
@@ -34,41 +68,25 @@ html {
     background-attachment: fixed;
 }
 
-.content {
-  max-width: 500px;
+
+.container {
+  max-width: 1000px;
   margin: auto;
-  padding: 10px;
+  padding:10px;
 }
 
-body {
-    font-family: 'Satisfy', sans-serif;
-    color: black;
+
+textarea {
+    width: 100%;
 }
 
-h1 {
-    font-family:'Cinzel Decorative', sans-serif;
-    color: black;
+div#tracker {
+    margin: 10px 45px;
+}
+textarea, input[type="text"] {
+    font-family: 'Nothing You Could Do', cursive;
+    font-size: 20px;
     font-weight: bold;
-}
-
-.button {
-    font-family: 'Satisfy';
-    background: rgba(0,0,0,0.2);
-    border-color: transparent;
-    color: black;
-}
-
-#logo {
-    padding:0px;
-    margin:0px;
-    width: 150px;
-    height: 50px;
-
-}
-
-textarea,
-input[type="text"] {
-    font-family: 'Abel';
     background: rgba(0,0,0,0.2);
     border-color: transparent;
     outline-color: rgba(0,0,0,0.3);
@@ -76,15 +94,23 @@ input[type="text"] {
 }
 input[name] {
     color: black;
+    text-align: center;
 }
 
+input[type="button"] { width: 10em; height: 2.5em;}
 input[type="text"]::placeholder { color: rgba(255, 255,255, 0.68); }
-input[type="button"]:hover { background-color: rgba(0,0,0,0.65);}
+input[type="button"]:hover { background-color: #babb82b8;}
 input[type="button"]:focus { outline-color: rgba(0,0,0,0.65); }
 input[name="profit"] { background: rgba(0,0,0,0.15);}
 
 hr {
-    border-color: rgba(0,0,0,0.2);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+    height:3px;
+    border: 0;
+}
+div.buttons {
+    justify-content: center;
+    display:flex;
 }
 
 /* Scroll Bar */
