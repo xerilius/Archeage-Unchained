@@ -33,23 +33,23 @@ $(document).ready(function() {
     const add = [];
 
     // DISPLAY PROFIT TRACKER ITEMS 
-    const displayProfits = function() {
-        totalGold = 0;
-        totalSilver = 0;
-        totalCopper = 0;
+    // const displayProfits = function() {
+    //     totalGold = 0;
+    //     totalSilver = 0;
+    //     totalCopper = 0;
 
-        // Calculate totals of all items combined
-        for (const i in golds) {
-            totalGold += parseInt(golds[i]);
-        }
-        for (const i in silver) {
-            totalSilver += parseInt(silver[i]);
-        }
-        for (const i in copper) {
-            totalCopper += parseInt(copper[i]);
-        }
+    //     // Calculate totals of all items combined
+    //     for (const i in golds) {
+    //         totalGold += parseInt(golds[i]);
+    //     }
+    //     for (const i in silver) {
+    //         totalSilver += parseInt(silver[i]);
+    //     }
+    //     for (const i in copper) {
+    //         totalCopper += parseInt(copper[i]);
+    //     }
 
-    }; // end of displayProfits function
+    // }; // end of displayProfits function
 
     const displayItems = function() {
         $("#item_tracker").val(items.join("\n"));
@@ -65,8 +65,9 @@ $(document).ready(function() {
             calculateItem();
             $("#item").next().text("");
             items.push($("#item").val() + '  ▌ ' + 
-                $("#profitg").val() + "g " + $("#profits").val() + "s " +
-                $("#profitc").val() + "c " );
+                       $("#profitg").val() + "g " + 
+                       $("#profits").val() + "s " +
+                       $("#profitc").val() + "c " );
             golds.push( $("#profitg").val() );
             silvers.push( $("#profits").val() );
             coppers.push( $("#profitc").val() );
@@ -92,8 +93,15 @@ $(document).ready(function() {
         if ( silver % 1 !== 0 ) {
             let newSil = parseFloat(silver.toFixed(2).split(".")[1]);
             let addToG = parseFloat(silver.toString().split(".")[0]);
+            console.log(addToG)
             silver = newSil;
             gold = gold + addToG;
+            console.log(gold)
+        }
+        else if (silver >= 100 && copper % 100 == 0) {
+            let addToG = silver/100;
+            gold = gold + addToG;
+            silver = 0;
         }
         copper = calculateCopper(copper, quantity);
         if ( copper % 1 !== 0 ) { // has decimal (100 doesnt count)
@@ -101,6 +109,7 @@ $(document).ready(function() {
             let addToS = parseFloat(copper.toString().split(".")[0]);
             copper = newCo;
             silver = silver + addToS;
+            console.log(silver)
         }
         else if (copper >= 100 && copper % 100 == 0) {
             let addToS = copper/100;
@@ -108,6 +117,8 @@ $(document).ready(function() {
             copper = 0;
         }
         // Final check
+        console.log("gold", gold)
+        console.log("silver",silver)
         if (silver >= 100) {
             silver = parseFloat(silver/100)
             let addToGold = parseFloat(silver.toString().split(".")[0]);
