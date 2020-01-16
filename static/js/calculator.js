@@ -7,20 +7,12 @@ const calculateGold = function (gold, quantity) {
 
 const calculateSilver = function (silver, quantity) {
     const newSilver = parseFloat(silver * quantity);
-    if ( newSilver > 100 ) {
-        const sToG = newSilver / 100;
-        return sToG;
-    }
-    else { return newSilver; }
+    return newSilver;
 };
 
 const calculateCopper = function (copper, quantity) {
     const newCopper = parseFloat(copper * quantity);
-    if ( newCopper > 100 ) {
-        const cToS = newCopper / 100;
-        return cToS;
-    } 
-    else { return newCopper; }
+    return newCopper;
 };
 
 
@@ -90,15 +82,20 @@ $(document).ready(function() {
         // Combining currencies
         gold = calculateGold(gold,quantity);
         silver = calculateSilver(silver, quantity);
+        console.log(silver)
+
         if ( silver % 1 !== 0 ) {
             let newSil = parseFloat(silver.toFixed(2).split(".")[1]);
             let addToG = parseFloat(silver.toString().split(".")[0]);
-            console.log(addToG)
             silver = newSil;
-            gold = gold + addToG;
-            console.log(gold)
+            gold = gold + addToG; 
         }
-        else if (silver >= 100 && copper % 100 == 0) {
+        else if (silver > 100) {
+            let addToG = silver;
+            gold = gold + addToG;
+            silver = 0;
+        }
+        else if (silver >= 100 && silver % 100 == 0) {
             let addToG = silver/100;
             gold = gold + addToG;
             silver = 0;
@@ -109,7 +106,11 @@ $(document).ready(function() {
             let addToS = parseFloat(copper.toString().split(".")[0]);
             copper = newCo;
             silver = silver + addToS;
-            console.log(silver)
+        }
+        else if (copper > 100) {
+            let addToS = silver;
+            silver = silver + addToS;
+            copper =0;
         }
         else if (copper >= 100 && copper % 100 == 0) {
             let addToS = copper/100;
@@ -117,12 +118,10 @@ $(document).ready(function() {
             copper = 0;
         }
         // Final check
-        console.log("gold", gold)
-        console.log("silver",silver)
         if (silver >= 100) {
             silver = parseFloat(silver/100)
             let addToGold = parseFloat(silver.toString().split(".")[0]);
-            let newSil = parseFloat(silver.toString().split(".")[1]);
+            let newSil = parseFloat(silver.toFixed(2).split(".")[1]);
             silver = newSil;
             gold = gold + addToGold;
         }
