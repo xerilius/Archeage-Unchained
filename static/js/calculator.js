@@ -82,18 +82,12 @@ $(document).ready(function() {
         // Combining currencies
         gold = calculateGold(gold,quantity);
         silver = calculateSilver(silver, quantity);
-        console.log(silver)
 
         if ( silver % 1 !== 0 ) {
             let newSil = parseFloat(silver.toFixed(2).split(".")[1]);
             let addToG = parseFloat(silver.toString().split(".")[0]);
             silver = newSil;
             gold = gold + addToG; 
-        }
-        else if (silver > 100) {
-            let addToG = silver;
-            gold = gold + addToG;
-            silver = 0;
         }
         else if (silver >= 100 && silver % 100 == 0) {
             let addToG = silver/100;
@@ -107,11 +101,7 @@ $(document).ready(function() {
             copper = newCo;
             silver = silver + addToS;
         }
-        else if (copper > 100) {
-            let addToS = silver;
-            silver = silver + addToS;
-            copper =0;
-        }
+
         else if (copper >= 100 && copper % 100 == 0) {
             let addToS = copper/100;
             silver = silver + addToS;
