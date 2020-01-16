@@ -64,7 +64,9 @@ $(document).ready(function() {
         } else {
             calculateItem();
             $("#item").next().text("");
-            items.push($("#item").val() );
+            items.push($("#item").val() + '  ▌ ' + 
+                $("#profitg").val() + "g " + $("#profits").val() + "s " +
+                $("#profitc").val() + "c " );
             golds.push( $("#profitg").val() );
             silvers.push( $("#profits").val() );
             coppers.push( $("#profitc").val() );
