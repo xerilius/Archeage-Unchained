@@ -78,6 +78,7 @@ html {
 
 textarea {
     width: 100%;
+
 }
 
 div#tracker {
@@ -91,14 +92,18 @@ textarea, input[type="text"] {
     border-color: transparent;
     outline-color: rgba(0,0,0,0.3);
     color: black;
+
 }
 input[name] {
     color: black;
     text-align: center;
 }
 
+.currency {
+    width: 10rem;
+}
 input[type="button"] { width: 10em; height: 2.5em;}
-input[type="text"]::placeholder { color: rgba(255, 255,255, 0.68); }
+input[type="text"]::placeholder { color: rgba(0, 0, 0, 0.562); }
 input[type="button"]:hover { background-color: #babb82b8;}
 input[type="button"]:focus { outline-color: rgba(0,0,0,0.65); }
 input[name="profit"] { background: rgba(0,0,0,0.15);}

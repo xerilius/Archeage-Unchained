@@ -21,11 +21,13 @@
         <!-- Currency -->
         <label for="price">Price</label> ▸
         <label for="gold">&nbsp;</label>
-        <input type="text" class="currency" id="gold" name="currency" > g
+        <input type="text" class="currency" id="gold" name="currency" placeholder="Gold">&nbsp;<img src="./static/img/gold.png">
+       
         <label for="silver">&nbsp;</label>
-        <input type="text" class="currency" id="silver" name="currency" > s
+        <input type="text" class="currency" id="silver" name="currency" placeholder="Silver">&nbsp;<img src="./static/img/silver.png">
+        
         <label for="copper">&nbsp;</label>
-        <input type="text" class="currency" id="copper" name="currency" > c
+        <input type="text" class="currency" id="copper" name="currency"  placeholder="Copper">&nbsp;<img src="./static/img/copper.png">
         <span></span><br><br>
         
         <!-- Item Quantity -->
@@ -35,9 +37,9 @@
         
         <!-- Total Profit -->
         <label for="profit">Total</label> ▸
-          <input type="text"  id="profitg" name="profit" disabled> g
-          <input type="text"  id="profits" name="profit" disabled> s
-          <input type="text" id="profitc" name="profit" disabled> c
+          <input type="text"  id="profitg" name="profit" class="currency" disabled>&nbsp;<img src="./static/img/gold.png">
+          <input type="text"  id="profits" name="profit" class="currency" disabled>&nbsp;<img src="./static/img/silver.png">
+          <input type="text" id="profitc" name="profit" class="currency" disabled>&nbsp;<img src="./static/img/copper.png">
 
         <!-- Buttons -->
         <div class="buttons">
@@ -54,9 +56,9 @@
         <textarea id="item_tracker" rows="7" disabled></textarea>
 
         <label>Daily Profit</label> ▸
-        <input type="text" id="total_gold" name="total_gold" disabled>g 
-        <input type="text" id="total_silver" name="total_silver" disabled>s 
-        <input type="text" id="total_copper" name="total_copper" disabled>c <br>
+        <input type="text" id="total_gold" name="total_gold" class="currency" disabled>&nbsp;<img src="./static/img/gold.png">
+        <input type="text" id="total_silver" name="total_silver" class="currency" disabled>&nbsp;<img src="./static/img/silver.png">
+        <input type="text" id="total_copper" name="total_copper" class="currency" disabled>&nbsp;<img src="./static/img/copper.png"><br>
 
         <input type="button" class="button" id="clear_tracker" value="﹣  Clear  ﹣">
     </div>
