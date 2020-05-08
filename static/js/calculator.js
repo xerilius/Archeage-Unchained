@@ -157,6 +157,9 @@ $(document).ready(function() {
 
     $("#clear_tracker").click(function() { 
         $("#item_tracker").val("");
+        $("#total_gold").val("");
+        $("#total_silver").val("");
+        $("#total_copper").val("");
     });
  
 }); // end ready()
