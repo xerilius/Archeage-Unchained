@@ -155,15 +155,15 @@ $(document).ready(function() {
         $("#profitc").val("");
     }); 
 
-    $("#clear_tracker").click(function() { 
-        $("#item_tracker").val("");
+    $("#clear_tracker").click(function() {
         items.length = 0;
+        golds.length = 0;
+        silvers.length = 0;
+        coppers.length = 0;
+        $("#item_tracker").val("");
         $("#total_gold").val("");
-        golds = [];
         $("#total_silver").val("");
-        silvers = [];
         $("#total_copper").val("");
-        coppers = [];
     });
  
 }); // end ready()
