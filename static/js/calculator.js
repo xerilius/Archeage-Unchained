@@ -157,9 +157,13 @@ $(document).ready(function() {
 
     $("#clear_tracker").click(function() { 
         $("#item_tracker").val("");
+        items.length = 0;
         $("#total_gold").val("");
+        golds = [];
         $("#total_silver").val("");
+        silvers = [];
         $("#total_copper").val("");
+        coppers = [];
     });
  
 }); // end ready()
