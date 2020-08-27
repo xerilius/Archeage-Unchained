@@ -1,6 +1,6 @@
 <h1 align="center">MMORPG Profit Calculator</h1>
 <h3 align="center"> 
-<a href="https://xerilius.github.io/mmorpg-profit-calculator/">「 L I V E &nbsp; D E M O 」</a>
+<a href="https://xerilius.github.io/mmo-profit-calculator/">「 L I V E &nbsp; D E M O 」</a>
 </h3>
 
 <b><ins>BUILT WITH</ins></b>  
